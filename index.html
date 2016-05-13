@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style media="screen">
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            .header{
+                height: 130px;
+                background-color: rgba(3, 23, 128, 0.85);
+                position: fixed;
+                top: 0;
+                width: 100%;
+                box-shadow: 0 0 50px 0 rgba(22, 109, 190, 0.99);
+            }
+
+            .photo1{
+                /*display: inline-block;*/
+                float: left;
+                width: 10%;
+                padding-left: 40px;
+            }
+
+            .topic{
+                padding:25px 20px;
+                float: left;
+                width: 70%;
+                text-align: center;
+                color: red;
+                font-size: 1.5em;
+            }
+
+            .photo2{
+                margin: 160px auto auto 120px;
+                float: left;
+                width: 30%;
+            }
+
+            .user{
+                margin: 230px auto auto 80px;
+                float: left;
+                width: 50%;
+                /*background-color: #0f0;*/
+                padding: 20px;
+            }
+
+            .user label{
+                display: inline-block;
+                width: 4em;
+                margin-bottom: 2em;
+                margin-left: 20px;
+            }
+
+            .user input{
+                width: 20em;
+            }
+
+            .rule{
+                /*border: 1px solid rgb(10, 90, 164);*/
+                width: 370px;
+                padding: 2px;
+                border-radius: 7px;
+                box-shadow: 5px 20px 20px 0 rgb(110, 154, 158);
+            }
+
+            .check{
+                margin-top: 10px;
+
+
+
+            }
+
+            .btn{
+                margin-top: 20px;
+                margin-left: 100px;
+            }
+
+            a{
+                text-decoration: none;
+            }
+
+        </style>
+
+        <title>驾考模拟系统</title>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="photo1">
+                <img src="./jinghui1.jpg" alt="" width="160px" height="130px" />
+            </div>
+
+            <div class="topic">
+                <h1>逗逗王国驾考模拟系统</h1>
+            </div>
+        </div>
+
+
+        <div class="photo2">
+            <img src="./jiaojing.jpg" alt="" / width="300px" height="450px">
+        </div>
+
+        <div class="user">
+            <label>用户名</label>
+            <input type="text" name="name" value="" placeholder="手机号" maxlength="11"><br>
+            <label>密码</label>
+            <input type="text" name="name" value="" placeholder="身份证号码" maxlength="18">
+
+            <div class="rule">
+                <pre>
+条约：
+    1、你要同意樊逗逗的所有观点
+    2、你要夸赞樊逗逗是宇宙第一美少女
+    3、你要发自内心的赞赏樊逗逗
+    4、你要无条件为樊逗逗服务并且为此感到骄傲
+                </pre>
+                <input type="checkbox">同意
+            </div>
+
+
+            <br><a href="apple.html"><button type="button" class="btn">登录</button></a>
+            <a href="out.html"><button type="button" class="btn">取消</button></a>
+
+        </div>
+
+
+    </body>
+</html>
