@@ -1,133 +1,206 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <style media="screen">
 
-            *{
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <meta charset="utf-8">
+    <style media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-            .header{
-                height: 130px;
-                background-color: rgba(3, 23, 128, 0.85);
-                position: fixed;
-                top: 0;
-                width: 100%;
-                box-shadow: 0 0 50px 0 rgba(22, 109, 190, 0.99);
-            }
+        .header {
+            height: 130px;
+            background-color: rgba(3, 23, 128, 0.85);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 0 50px 0 rgba(22, 109, 190, 0.99);
+        }
 
-            .photo1{
-                /*display: inline-block;*/
-                float: left;
-                width: 10%;
-                padding-left: 40px;
-            }
+        .photo1 {
+            /*display: inline-block;*/
+            float: left;
+            width: 10%;
+            padding-left: 40px;
+        }
 
-            .topic{
-                padding:25px 20px;
-                float: left;
-                width: 70%;
-                text-align: center;
-                color: red;
-                font-size: 1.5em;
-            }
+        .topic {
+            padding: 25px 20px;
+            float: left;
+            width: 70%;
+            text-align: center;
+            color: red;
+            font-size: 1.5em;
+        }
 
-            .photo2{
-                margin: 160px auto auto 120px;
-                float: left;
-                width: 30%;
-            }
+        .photo2 {
+            margin: 160px auto auto 120px;
+            float: left;
+            width: 30%;
+        }
 
-            .user{
-                margin: 230px auto auto 80px;
-                float: left;
-                width: 50%;
-                /*background-color: #0f0;*/
-                padding: 20px;
-            }
+        .user {
+            margin: 230px auto auto 80px;
+            float: left;
+            width: 50%;
+            /*background-color: #0f0;*/
+            padding: 20px;
+        }
 
-            .user label{
-                display: inline-block;
-                width: 4em;
-                margin-bottom: 2em;
-                margin-left: 20px;
-            }
+        .user label {
+            display: inline-block;
+            width: 4em;
+            margin-bottom: 2em;
+            margin-left: 20px;
+        }
 
-            .user input{
-                width: 20em;
-            }
+        .user input {
+            width: 20em;
+        }
 
-            .rule{
-                /*border: 1px solid rgb(10, 90, 164);*/
-                width: 370px;
-                padding: 2px;
-                border-radius: 7px;
-                box-shadow: 5px 20px 20px 0 rgb(110, 154, 158);
-            }
+        .rule {
+            /*border: 1px solid rgb(10, 90, 164);*/
+            width: 370px;
+            padding: 2px;
+            border-radius: 7px;
+            box-shadow: 5px 20px 20px 0 rgb(110, 154, 158);
+        }
 
-            .check{
-                margin-top: 10px;
+        .check {
+            margin-top: 10px;
+        }
 
+        .btn {
+            margin-top: 20px;
+            margin-left: 100px;
+        }
 
+        a {
+            text-decoration: none;
+        }
+    </style>
 
-            }
+    <script src="./jquery-2.2.3.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var pho;
+            var psd;
+            var chb = document.getElementById('cb');
 
-            .btn{
-                margin-top: 20px;
-                margin-left: 100px;
-            }
+            //  blur 失去焦点,验证手机号
+            $('.phone').blur(function(event) {
+                pho = $(this).val();
+                //正则表达式
+                var reg = new RegExp('1[0-9]{10}');
+                // reg = new RegExp('186[0-9]{8}');
+                reg = new RegExp('1[3|5|8][0-9]{9}');
 
-            a{
-                text-decoration: none;
-            }
+                if (pho.length == 0) {
+                    $('.phone_error').text('必须填写');
+                } else if(!reg.test(pho)) {
+                    $('.phone_error').text('格式错误');
+                }
 
-        </style>
+            });
 
-        <title>驾考模拟系统</title>
-    </head>
+            $('.phone').focus(function () {
+                $('.phone_error').text('');
+            });
 
-    <body>
+            $('.key').blur(function(event) {
+                psd = $(this).val();
+                var reg = new RegExp('[0-9]{18}');
 
-        <div class="header">
-            <div class="photo1">
-                <img src="./jinghui1.jpg" alt="" width="160px" height="130px" />
-            </div>
+                if (psd.length == 0) {
+                    $('.key_error').text('必须填写');
+                }else if (!reg.test(psd)) {
+                    $('.key_error').text('密码错误');
+                }
 
-            <div class="topic">
-                <h1>逗逗王国驾考模拟系统</h1>
-            </div>
+            });
+
+            $('.key').focus(function(event) {
+                $('.key_error').text('');
+            });
+
+            // 登录：验证用户名、密码、复选框是不是全部完成
+            $('#b1').click(function(event) {
+                if (pho.length == 0) {
+                    alert("用户名不能为空！");
+                }else {
+                    if (psd.length == 0) {
+                        alert("密码不能为空！");
+                    }else {
+                        if (chb.checked == false) {
+                            alert("必须同意条约！");
+                        }else {
+                            self.location='apple.html';
+                        }
+                    }
+                }
+            });
+
+            // 取消：跳到指定网址
+            $('#b2').click(function(event) {
+                self.location='out.html';
+            });
+
+        });
+    </script>
+
+    <title>驾考模拟系统</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="photo1">
+            <img src="./jinghui1.jpg" alt="" width="160px" height="130px" />
         </div>
 
-
-        <div class="photo2">
-            <img src="./jiaojing.jpg" alt="" / width="300px" height="450px">
+        <div class="topic">
+            <h1>逗逗王国驾考模拟系统</h1>
         </div>
+    </div>
 
-        <div class="user">
-            <label>用户名</label>
-            <input type="text" name="name" value="" placeholder="手机号" maxlength="11"><br>
-            <label>密码</label>
-            <input type="text" name="name" value="" placeholder="身份证号码" maxlength="18">
 
-            <div class="rule">
-                <pre>
+    <div class="photo2">
+        <img src="./jiaojing.jpg" alt="" / width="300px" height="450px">
+    </div>
+
+    <div class="user">
+        <label>用户名</label>
+        <input type="text" name="name" placeholder="手机号" maxlength="11" class="phone">
+        <span class="phone_error"></span>
+        <br>
+        <label>密码</label>
+        <input type="password" name="name" placeholder="身份证号码" maxlength="18" class="key">
+        <span class="key_error"></span>
+
+        <div class="rule">
+            <pre>
 条约：
     1、你要同意樊逗逗的所有观点
     2、你要夸赞樊逗逗是宇宙第一美少女
     3、你要发自内心的赞赏樊逗逗
     4、你要无条件为樊逗逗服务并且为此感到骄傲
                 </pre>
-                <input type="checkbox">同意
-            </div>
-
-
-            <br><a href="apple.html"><button type="button" class="btn">登录</button></a>
-            <a href="out.html"><button type="button" class="btn">取消</button></a>
-
+            <input type="checkbox" id="cb">同意
         </div>
 
 
-    </body>
+        <br>
+        <!-- <a href="apple.html"> -->
+            <button type="button" class="btn" id="b1">登录</button>
+        <!-- </a>
+        <a href="out.html"> -->
+            <button type="button" class="btn" id="b2">取消</button>
+        <!-- </a> -->
+
+    </div>
+
+
+</body>
+
 </html>
