@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./main.css" media="screen" title="no title" charset="utf-8">
+        <script src="jquery-2.2.3.min.js" charset="utf-8"></script>
+        <script src="main.js" charset="utf-8"></script>
         <title>驾考模拟系统</title>
     </head>
     <body>
@@ -11,20 +13,27 @@
         </header>
 
             <div class="content">
-                <h3 id="question">这是题目</h3>
+                <h3 id="question"></h3>
 
                 <p  id="answer">
-                    <input type="radio" name="name" value="">A、
-                    <br><input type="radio" name="name" value="">B、
-                    <br><input type="radio" name="name" value="">C、
-                    <br><input type="radio" name="name" value="">D、
+                    <input type="radio" name="a">A、<span id="a"></span>
+                    <br><input type="radio" name="a">B、<span id="b"></span>
+                    <br><input type="radio" name="a">C、<span id="c"></span>
+                    <br><input type="radio" name="a">D、<span id="d"></span>
                 </p>
             </div>
 
+            <div class="chu">
+                <p class="tip">
+                    本试题共四题，一个题目25分，请认真作答。准备好了请点击“开始答题”按钮。
+                </p>
+                <button type="button" class="start">开始答题</button>
+            </div>
+
             <div class="btn">
-                <button type="button">上一题</button>
-                <button type="button">下一题</button>
-                <button type="button">submit</button>
+                <button type="button" id="last">上一题</button>
+                <button type="button" id="next">下一题</button>
+                <button type="button" id="subm">submit</button>
             </div>
 
         <footer id="footer">
