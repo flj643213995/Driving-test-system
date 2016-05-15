@@ -8,22 +8,30 @@ $(document).ready(function() {
     ];
 
 
-    var ans = {
-        "0":[
-                {"A":"杨玉环"}, {"B":"樊灵洁"}, {"C":"西施"}, {"D":"彭丽媛"}
-            ],
-        "1":[
-                {"A":"樊灵洁"}, {"B":"逗逗"}, {"C":"国王"}, {"D":"妈妈"}
-            ],
-        "2":[
-                {"A":"羊"}, {"B":"草"}, {"C":"琴"}, {"D":"月亮"}
-            ],
-        "3":[
-                {"A":"飞鸽牌自行车"}, {"B":"艾玛电动车"}, {"C":"smart"}, {"D":"法拉利"}
-            ]
-    };
+    var ans = [
+        {"A":"杨玉环", "B":"樊灵洁", "C":"西施", "D":"彭丽媛"},
+        {"A":"樊灵洁", "B":"逗逗", "C":"国王", "D":"妈妈"},
+        {"A":"羊", "B":"草", "C":"琴", "D":"月亮"},
+        {"A":"飞鸽牌自行车", "B":"艾玛电动车", "C":"smart", "D":"法拉利"}
+    ];
 
+    // 第几个题目的下标
+    var index = 0;
 
+    function showQue(index) {
+        $('#question').text((index+1) + "、" + qst[index]);
+        // 答案的下标
+        var i = 0;
+        var x = ["A","B","C","D"];
+        var radioSpan = $('#answer input + span');
+        for (x[i] in ans[index]) {
+            radioSpan.eq(i).text(x[i] + '、' + ans[index][x[i]]);
+            i++;
+        }
+
+    }
+
+    // 可以在CSS中设置这些样式，在这里用 removeAttr 移除 display 的属性
     $('.start').click(function() {
         $('.content').css('display', 'block');
         $('.btn').css('display', 'inline-block');
@@ -35,21 +43,34 @@ $(document).ready(function() {
         $('#next').css('margin-right', '150px');
         $('.chu').css('display', 'none');
 
-
-
-        var timu = qst[0];
-        $('#question').append(timu);
-
-        var daan = ans[0][0];
-        $('#a').text(daan);
-        $('#b').text("樊灵洁");
-
+        showQue(index);
 
     });
 
 
+    $('#last').click(function() {
+        index--;
+        if (index < 0) {
+            alert("已经到第一题了！");
+            index = 0;
+        }
+        showQue(index);
+    });
 
 
+    $('#next').click(function() {
+        index++;
+        if (index > 3) {
+            alert("没有更多题目了！");
+            index = 3;
+        }
+        showQue(index);
+    });
+
+
+    function submitClick() {
+
+    }
 
 
 
