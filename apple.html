@@ -16,10 +16,10 @@
                 <h3 id="question"></h3>
 
                 <p  id="answer">
-                    <input type="radio" name="a"><span></span>
-                    <br><input type="radio" name="a"><span></span>
-                    <br><input type="radio" name="a"><span></span>
-                    <br><input type="radio" name="a"><span></span>
+                    <input type="radio" name="a" value="A"><span></span>
+                    <br><input type="radio" name="a" value="B"><span></span>
+                    <br><input type="radio" name="a" value="C"><span></span>
+                    <br><input type="radio" name="a" value="D"><span></span>
                 </p>
             </div>
 
@@ -34,6 +34,25 @@
                 <button type="button" id="last">上一题</button>
                 <button type="button" id="next">下一题</button>
                 <button type="button" id="subm">submit</button>
+            </div>
+
+
+            <div class="result">
+                <!-- 得分 -->
+                <h1 id="score">您的总分是：</h1>
+
+                <!-- 标准答案 -->
+                <p id="staderd">
+                    标准答案：
+                </p>
+
+                <!-- 测试者答案 -->
+                <p id="yours">
+                    您的答案：
+                </p>
+
+                <button type="button" name="button" id="again">重做</button>
+                <button type="button" name="button" id="out">退出</button>
             </div>
 
         <footer id="footer">

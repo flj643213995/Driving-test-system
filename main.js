@@ -18,6 +18,30 @@ $(document).ready(function() {
     // 第几个题目的下标
     var index = 0;
 
+    // 判断答题结果
+    //标准答案
+    var sta = ["B","D","C","A"];
+
+    // 你的答案
+    // var yourAnswer;
+    var yours = [];
+
+    // 分数
+    var score = 0;
+
+    // 给 radio添加点击事件
+    $(':radio').click(function(index) {
+        // 获得选中答案的 val
+        // yourAnswer = $("input[name='a']:checked").val();
+        yours[index] = $(this).val();
+    });
+
+    for (var i = 0; i < sta.length; i++) {
+        if (sta[i] == yours[i]) {
+            score = score + 25;
+        }
+    }
+
     function showQue(index) {
         $('#question').text((index+1) + "、" + qst[index]);
         // 答案的下标
@@ -47,7 +71,6 @@ $(document).ready(function() {
 
     });
 
-
     $('#last').click(function() {
         index--;
         if (index < 0) {
@@ -69,7 +92,13 @@ $(document).ready(function() {
 
 
     $('#subm').click(function() {
-        self.location='result.html';
+        $('#answer').css('display', 'none');
+        $('#question').css('display', 'none');
+        $('.btn').css('display', 'none');
+        $('.result').css('display', 'block');
+        $('#staderd').append(sta);
+        $('#yours').append(yours);
+        $('#score').append(score);
     });
 
     $('#again').click(function() {
@@ -79,6 +108,10 @@ $(document).ready(function() {
     $('#out').click(function() {
         self.location='out.html';
     });
+
+
+
+
 
 
 
