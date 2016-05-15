@@ -68,9 +68,18 @@ $(document).ready(function() {
     });
 
 
-    function submitClick() {
+    $('#subm').click(function() {
+        self.location='result.html';
+    });
 
-    }
+    $('#again').click(function() {
+        self.location='apple.html';
+    });
+
+    $('#out').click(function() {
+        self.location='out.html';
+    });
+
 
 
 
