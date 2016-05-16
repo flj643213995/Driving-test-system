@@ -30,18 +30,27 @@ $(document).ready(function() {
     var score = 0;
 
     // 给 radio添加点击事件
-    $(':radio').click(function(index) {
-        // 获得选中答案的 val
-        // yourAnswer = $("input[name='a']:checked").val();
-        yours[index] = $(this).val();
-    });
+    function choose() {
+        $(':radio').click(function() {
+            // 获得选中答案的 val
+            // yourAnswer = $("input[name='a']:checked").val();
+            yours[index] = $(this).val();
+            //测试数据是否存入yours【】
+            // alert (yours[index]);
+        });
+    }
 
-    for (var i = 0; i < sta.length; i++) {
-        if (sta[i] == yours[i]) {
-            score = score + 25;
+    //计算最后成绩
+    function result() {
+        for (var i = 0; i < sta.length; i++) {
+            if (sta[i] == yours[i]) {
+                score = score + 25;
+            }
         }
     }
 
+
+    // 显示题目和答案
     function showQue(index) {
         $('#question').text((index+1) + "、" + qst[index]);
         // 答案的下标
@@ -52,6 +61,8 @@ $(document).ready(function() {
             radioSpan.eq(i).text(x[i] + '、' + ans[index][x[i]]);
             i++;
         }
+
+        choose(index);
 
     }
 
@@ -68,7 +79,7 @@ $(document).ready(function() {
         $('.chu').css('display', 'none');
 
         showQue(index);
-
+        choose(index);
     });
 
     $('#last').click(function() {
@@ -78,6 +89,7 @@ $(document).ready(function() {
             index = 0;
         }
         showQue(index);
+        choose(index);
     });
 
 
@@ -88,6 +100,7 @@ $(document).ready(function() {
             index = 3;
         }
         showQue(index);
+        choose(index);
     });
 
 
@@ -96,6 +109,9 @@ $(document).ready(function() {
         $('#question').css('display', 'none');
         $('.btn').css('display', 'none');
         $('.result').css('display', 'block');
+
+        result();
+
         $('#staderd').append(sta);
         $('#yours').append(yours);
         $('#score').append(score);
