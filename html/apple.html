@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/main.css" media="screen" title="no title" charset="utf-8">
+        <script src="../js/jquery-2.2.3.min.js" charset="utf-8"></script>
+        <script src="../js/main.js" charset="utf-8"></script>
+        <title>驾考模拟系统</title>
+    </head>
+    <body>
+        <header id="header">
+            <h1>驾考之神刷题</h1>
+        </header>
+
+            <div class="content">
+                <h3 id="question"></h3>
+
+                <p  id="answer">
+                    <input type="radio" name="a" value="A"><span></span>
+                    <br><input type="radio" name="a" value="B"><span></span>
+                    <br><input type="radio" name="a" value="C"><span></span>
+                    <br><input type="radio" name="a" value="D"><span></span>
+                </p>
+            </div>
+
+            <div class="chu">
+                <p class="tip">
+                    本试题共四题，一个题目25分，请认真作答。准备好了请点击“开始答题”按钮。
+                </p>
+                <button type="button" class="start">开始答题</button>
+            </div>
+
+            <div class="btn">
+                <button type="button" id="last">上一题</button>
+                <button type="button" id="next">下一题</button>
+                <button type="button" id="subm">submit</button>
+            </div>
+
+
+            <div class="result">
+                <!-- 得分 -->
+                <h1 id="score">您的总分是：</h1>
+
+                <!-- 标准答案 -->
+                <p id="staderd">
+                    标准答案：
+                </p>
+
+                <!-- 测试者答案 -->
+                <p id="yours">
+                    您的答案：
+                </p>
+
+                <button type="button" name="button" id="again">重做</button>
+                <button type="button" name="button" id="out">退出</button>
+            </div>
+
+        <footer id="footer">
+            Copyright (c) 2016 Copyright Holder All Rights Reserved.
+        </footer>
+
+
+
+    </body>
+</html>

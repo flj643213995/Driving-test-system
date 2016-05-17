@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 130px;
+    background-color: rgba(3, 23, 128, 0.85);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0 50px 0 rgba(22, 109, 190, 0.99);
+}
+
+.photo1 {
+    /*display: inline-block;*/
+    float: left;
+    width: 10%;
+    padding-left: 40px;
+}
+
+.topic {
+    padding: 25px 20px;
+    float: left;
+    width: 70%;
+    text-align: center;
+    color: red;
+    font-size: 1.5em;
+}
+
+.photo2 {
+    margin: 160px auto auto 120px;
+    float: left;
+    width: 30%;
+}
+
+.user {
+    margin: 230px auto auto 80px;
+    float: left;
+    width: 50%;
+    /*background-color: #0f0;*/
+    padding: 20px;
+}
+
+.user label {
+    display: inline-block;
+    width: 4em;
+    margin-bottom: 2em;
+    margin-left: 20px;
+}
+
+.user input {
+    width: 20em;
+}
+
+.rule {
+    /*border: 1px solid rgb(10, 90, 164);*/
+    width: 370px;
+    padding: 2px;
+    border-radius: 7px;
+    box-shadow: 5px 20px 20px 0 rgb(110, 154, 158);
+}
+
+.check {
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+a {
+    text-decoration: none;
+}
